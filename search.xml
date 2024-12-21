@@ -20,9 +20,9 @@
 ]]></content>
   </entry>
   <entry>
-    <title>quaternion</title>
+    <title>rotation</title>
     <url>/2024/12/20/quaternion/</url>
-    <content><![CDATA[<p>This post is about the basic theory of quaternions, including defination, manipulation and usage in rotation. For author's sake, We use Hamilton's notation in this post.</p>
+    <content><![CDATA[<p>This post is about the basic theory of ragid-body rotation, including the defination, manipulation and usage in ragid-body rotation representation of quaternion, direction cosine matrix and skew symertry matrix. We use Hamilton's notation of quaternion in this post. This post is the prerequest for our impending posts discussing the GNC problem.</p>
 <span id="more"></span>
 <p><span class="math inline">\(q=q_0+q_1i+q_2j+q_3k\)</span></p>
 ]]></content>
