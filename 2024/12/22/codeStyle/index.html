@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC|Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="This post lists some code styles that I obey in the daily routines. If there are any code fragements in those style, this post will help. Usually, I use C&#x2F;C++ and Python3, the standard uses C++ as exa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Code Style">
+<meta property="og:url" content="http://example.com/2024/12/22/codeStyle/index.html">
+<meta property="og:site_name" content="Edgar&#39;s Blog">
+<meta property="og:description" content="This post lists some code styles that I obey in the daily routines. If there are any code fragements in those style, this post will help. Usually, I use C&#x2F;C++ and Python3, the standard uses C++ as exa">
+<meta property="og:locale">
+<meta property="article:published_time" content="2024-12-22T07:16:10.000Z">
+<meta property="article:modified_time" content="2024-12-22T08:23:09.794Z">
+<meta property="article:author" content="Edgar Lau">
+<meta property="article:tag" content="tips">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2024/12/22/codeStyle/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-Hans'
+  };
+</script>
+
+  <title>Code Style | Edgar's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Edgar's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/22/codeStyle/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Edgar Lau">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Edgar's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Code Style
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="Created: 2024-12-22 15:16:10 / Modified: 16:23:09" itemprop="dateCreated datePublished" datetime="2024-12-22T15:16:10+08:00">2024-12-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">所属分类</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/programming/" itemprop="url" rel="index"><span itemprop="name">programming</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2024/12/22/codeStyle/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/12/22/codeStyle/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>This post lists some code styles that I obey in the daily routines. If there are any code fragements in those style, this post will help. Usually, I use C/C++ and Python3, the standard uses C++ as example, but works as well in Python3.</p>
+<span id="more"></span>
+<ol type="1">
+<li>Variable name is typed in lower case and underlines, if it's a member of a class or structure, we type a extra underline as an end: <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">uint8_t</span> age;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Foo</span>&#123;</span><br><span class="line">    <span class="type">bool</span> is_old_;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li>Class(structure) name is typed in upper case and camel style: <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">GeoFeature</span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Map</span>&#123;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">    GeoFeature geo_feature_;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li>Enumerate name is typed the same as class, the elements of which is in upper case and camel style: <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum class</span> <span class="title class_">Color</span>&#123;</span><br><span class="line">    PaleGreen,</span><br><span class="line">    DarkRed,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li>Function name is write in lower case camel style: <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> ... Key;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">getKey</span><span class="params">(Key&amp; key)</span></span>;</span><br><span class="line"><span class="type">void</span> GeoFeature&#123;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">getKey</span><span class="params">(Key&amp; key)</span> <span class="type">const</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>In C++ Template, we use upper case camel style typing typename and use lower case and underlines style name as parameters <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Idx,<span class="keyword">typename</span> Value,<span class="type">int</span> idx_row,<span class="type">int</span> idx_col,<span class="type">int</span> value_row,<span class="type">int</span> value_col&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Matrix</span>&#123;</span><br><span class="line">    Eigen::Matrix&lt;Idx,idx_row,idx_col&gt; idx;</span><br><span class="line">    Eigen::Matrix&lt;Value,value_row,value_col&gt; value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>Folder name is in upper camel style, and file name is in lower camel style.</li>
+<li>indent, line change, max line length style and other rules are base on google format: <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">Language:</span>        <span class="string">Cpp</span></span><br><span class="line"><span class="comment"># BasedOnStyle:  Google</span></span><br><span class="line"><span class="attr">AccessModifierOffset:</span> <span class="number">-1</span></span><br><span class="line"><span class="attr">AlignAfterOpenBracket:</span> <span class="string">Align</span></span><br><span class="line"><span class="attr">AlignArrayOfStructures:</span> <span class="string">None</span></span><br><span class="line"><span class="attr">AlignConsecutiveMacros:</span> <span class="string">None</span></span><br><span class="line"><span class="attr">AlignConsecutiveAssignments:</span> <span class="string">None</span></span><br><span class="line"><span class="attr">AlignConsecutiveBitFields:</span> <span class="string">None</span></span><br><span class="line"><span class="attr">AlignConsecutiveDeclarations:</span> <span class="string">None</span></span><br><span class="line"><span class="attr">AlignEscapedNewlines:</span> <span class="string">Left</span></span><br><span class="line"><span class="attr">AlignOperands:</span>   <span class="string">Align</span></span><br><span class="line"><span class="attr">AlignTrailingComments:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">AllowAllArgumentsOnNextLine:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">AllowAllParametersOfDeclarationOnNextLine:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">AllowShortEnumsOnASingleLine:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">AllowShortBlocksOnASingleLine:</span> <span class="string">Never</span></span><br><span class="line"><span class="attr">AllowShortCaseLabelsOnASingleLine:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">AllowShortFunctionsOnASingleLine:</span> <span class="string">All</span></span><br><span class="line"><span class="attr">AllowShortLambdasOnASingleLine:</span> <span class="string">All</span></span><br><span class="line"><span class="attr">AllowShortIfStatementsOnASingleLine:</span> <span class="string">WithoutElse</span></span><br><span class="line"><span class="attr">AllowShortLoopsOnASingleLine:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">AlwaysBreakAfterDefinitionReturnType:</span> <span class="string">None</span></span><br><span class="line"><span class="attr">AlwaysBreakAfterReturnType:</span> <span class="string">None</span></span><br><span class="line"><span class="attr">AlwaysBreakBeforeMultilineStrings:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">AlwaysBreakTemplateDeclarations:</span> <span class="literal">Yes</span></span><br><span class="line"><span class="attr">AttributeMacros:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">__capability</span></span><br><span class="line"><span class="attr">BinPackArguments:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">BinPackParameters:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">BraceWrapping:</span></span><br><span class="line">  <span class="attr">AfterCaseLabel:</span>  <span class="literal">false</span></span><br><span class="line">  <span class="attr">AfterClass:</span>      <span class="literal">false</span></span><br><span class="line">  <span class="attr">AfterControlStatement:</span> <span class="string">Never</span></span><br><span class="line">  <span class="attr">AfterEnum:</span>       <span class="literal">false</span></span><br><span class="line">  <span class="attr">AfterFunction:</span>   <span class="literal">false</span></span><br><span class="line">  <span class="attr">AfterNamespace:</span>  <span class="literal">false</span></span><br><span class="line">  <span class="attr">AfterObjCDeclaration:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">AfterStruct:</span>     <span class="literal">false</span></span><br><span class="line">  <span class="attr">AfterUnion:</span>      <span class="literal">false</span></span><br><span class="line">  <span class="attr">AfterExternBlock:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">BeforeCatch:</span>     <span class="literal">false</span></span><br><span class="line">  <span class="attr">BeforeElse:</span>      <span class="literal">false</span></span><br><span class="line">  <span class="attr">BeforeLambdaBody:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">BeforeWhile:</span>     <span class="literal">false</span></span><br><span class="line">  <span class="attr">IndentBraces:</span>    <span class="literal">false</span></span><br><span class="line">  <span class="attr">SplitEmptyFunction:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">SplitEmptyRecord:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">SplitEmptyNamespace:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">BreakBeforeBinaryOperators:</span> <span class="string">None</span></span><br><span class="line"><span class="attr">BreakBeforeConceptDeclarations:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">BreakBeforeBraces:</span> <span class="string">Attach</span></span><br><span class="line"><span class="attr">BreakBeforeInheritanceComma:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">BreakInheritanceList:</span> <span class="string">BeforeColon</span></span><br><span class="line"><span class="attr">BreakBeforeTernaryOperators:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">BreakConstructorInitializersBeforeComma:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">BreakConstructorInitializers:</span> <span class="string">BeforeColon</span></span><br><span class="line"><span class="attr">BreakAfterJavaFieldAnnotations:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">BreakStringLiterals:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">ColumnLimit:</span>     <span class="number">100</span></span><br><span class="line"><span class="attr">CommentPragmas:</span>  <span class="string">&#x27;^ IWYU pragma:&#x27;</span></span><br><span class="line"><span class="attr">QualifierAlignment:</span> <span class="string">Leave</span></span><br><span class="line"><span class="attr">CompactNamespaces:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">ConstructorInitializerIndentWidth:</span> <span class="number">4</span></span><br><span class="line"><span class="attr">ContinuationIndentWidth:</span> <span class="number">4</span></span><br><span class="line"><span class="attr">Cpp11BracedListStyle:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">DeriveLineEnding:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">DerivePointerAlignment:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">DisableFormat:</span>   <span class="literal">false</span></span><br><span class="line"><span class="attr">EmptyLineAfterAccessModifier:</span> <span class="string">Never</span></span><br><span class="line"><span class="attr">EmptyLineBeforeAccessModifier:</span> <span class="string">LogicalBlock</span></span><br><span class="line"><span class="attr">ExperimentalAutoDetectBinPacking:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">PackConstructorInitializers:</span> <span class="string">NextLine</span></span><br><span class="line"><span class="attr">BasedOnStyle:</span>    <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="attr">ConstructorInitializerAllOnOneLineOrOnePerLine:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">AllowAllConstructorInitializersOnNextLine:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">FixNamespaceComments:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">ForEachMacros:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">foreach</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Q_FOREACH</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">BOOST_FOREACH</span></span><br><span class="line"><span class="attr">IfMacros:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">KJ_IF_MAYBE</span></span><br><span class="line"><span class="attr">IncludeBlocks:</span>   <span class="string">Regroup</span></span><br><span class="line"><span class="attr">IncludeCategories:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">Regex:</span>           <span class="string">&#x27;^&lt;ext/.*\.h&gt;&#x27;</span></span><br><span class="line">    <span class="attr">Priority:</span>        <span class="number">2</span></span><br><span class="line">    <span class="attr">SortPriority:</span>    <span class="number">0</span></span><br><span class="line">    <span class="attr">CaseSensitive:</span>   <span class="literal">false</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">Regex:</span>           <span class="string">&#x27;^&lt;.*\.h&gt;&#x27;</span></span><br><span class="line">    <span class="attr">Priority:</span>        <span class="number">1</span></span><br><span class="line">    <span class="attr">SortPriority:</span>    <span class="number">0</span></span><br><span class="line">    <span class="attr">CaseSensitive:</span>   <span class="literal">false</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">Regex:</span>           <span class="string">&#x27;^&lt;.*&#x27;</span></span><br><span class="line">    <span class="attr">Priority:</span>        <span class="number">2</span></span><br><span class="line">    <span class="attr">SortPriority:</span>    <span class="number">0</span></span><br><span class="line">    <span class="attr">CaseSensitive:</span>   <span class="literal">false</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">Regex:</span>           <span class="string">&#x27;.*&#x27;</span></span><br><span class="line">    <span class="attr">Priority:</span>        <span class="number">3</span></span><br><span class="line">    <span class="attr">SortPriority:</span>    <span class="number">0</span></span><br><span class="line">    <span class="attr">CaseSensitive:</span>   <span class="literal">false</span></span><br><span class="line"><span class="attr">IncludeIsMainRegex:</span> <span class="string">&#x27;([-_](test|unittest))?$&#x27;</span></span><br><span class="line"><span class="attr">IncludeIsMainSourceRegex:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="attr">IndentAccessModifiers:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">IndentCaseLabels:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">IndentCaseBlocks:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">IndentGotoLabels:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">IndentPPDirectives:</span> <span class="string">None</span></span><br><span class="line"><span class="attr">IndentExternBlock:</span> <span class="string">AfterExternBlock</span></span><br><span class="line"><span class="attr">IndentRequires:</span>  <span class="literal">false</span></span><br><span class="line"><span class="attr">IndentWidth:</span>     <span class="number">2</span></span><br><span class="line"><span class="attr">IndentWrappedFunctionNames:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">InsertTrailingCommas:</span> <span class="string">None</span></span><br><span class="line"><span class="attr">JavaScriptQuotes:</span> <span class="string">Leave</span></span><br><span class="line"><span class="attr">JavaScriptWrapImports:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">KeepEmptyLinesAtTheStartOfBlocks:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">LambdaBodyIndentation:</span> <span class="string">Signature</span></span><br><span class="line"><span class="attr">MacroBlockBegin:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="attr">MacroBlockEnd:</span>   <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="attr">MaxEmptyLinesToKeep:</span> <span class="number">1</span></span><br><span class="line"><span class="attr">NamespaceIndentation:</span> <span class="string">None</span></span><br><span class="line"><span class="attr">ObjCBinPackProtocolList:</span> <span class="string">Never</span></span><br><span class="line"><span class="attr">ObjCBlockIndentWidth:</span> <span class="number">2</span></span><br><span class="line"><span class="attr">ObjCBreakBeforeNestedBlockParam:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">ObjCSpaceAfterProperty:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">ObjCSpaceBeforeProtocolList:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">PenaltyBreakAssignment:</span> <span class="number">2</span></span><br><span class="line"><span class="attr">PenaltyBreakBeforeFirstCallParameter:</span> <span class="number">1</span></span><br><span class="line"><span class="attr">PenaltyBreakComment:</span> <span class="number">300</span></span><br><span class="line"><span class="attr">PenaltyBreakFirstLessLess:</span> <span class="number">120</span></span><br><span class="line"><span class="attr">PenaltyBreakOpenParenthesis:</span> <span class="number">0</span></span><br><span class="line"><span class="attr">PenaltyBreakString:</span> <span class="number">1000</span></span><br><span class="line"><span class="attr">PenaltyBreakTemplateDeclaration:</span> <span class="number">10</span></span><br><span class="line"><span class="attr">PenaltyExcessCharacter:</span> <span class="number">1000000</span></span><br><span class="line"><span class="attr">PenaltyReturnTypeOnItsOwnLine:</span> <span class="number">200</span></span><br><span class="line"><span class="attr">PenaltyIndentedWhitespace:</span> <span class="number">0</span></span><br><span class="line"><span class="attr">PointerAlignment:</span> <span class="string">Left</span></span><br><span class="line"><span class="attr">PPIndentWidth:</span>   <span class="number">-1</span></span><br><span class="line"><span class="attr">RawStringFormats:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">Language:</span>        <span class="string">Cpp</span></span><br><span class="line">    <span class="attr">Delimiters:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">cc</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">CC</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">cpp</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">Cpp</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">CPP</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;c++&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;C++&#x27;</span></span><br><span class="line">    <span class="attr">CanonicalDelimiter:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="attr">BasedOnStyle:</span>    <span class="string">google</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">Language:</span>        <span class="string">TextProto</span></span><br><span class="line">    <span class="attr">Delimiters:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">pb</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PB</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">proto</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PROTO</span></span><br><span class="line">    <span class="attr">EnclosingFunctions:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">EqualsProto</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">EquivToProto</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PARSE_PARTIAL_TEXT_PROTO</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PARSE_TEST_PROTO</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PARSE_TEXT_PROTO</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ParseTextOrDie</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ParseTextProtoOrDie</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ParseTestProto</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ParsePartialTestProto</span></span><br><span class="line">    <span class="attr">CanonicalDelimiter:</span> <span class="string">pb</span></span><br><span class="line">    <span class="attr">BasedOnStyle:</span>    <span class="string">google</span></span><br><span class="line"><span class="attr">ReferenceAlignment:</span> <span class="string">Pointer</span></span><br><span class="line"><span class="attr">ReflowComments:</span>  <span class="literal">true</span></span><br><span class="line"><span class="attr">RemoveBracesLLVM:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">SeparateDefinitionBlocks:</span> <span class="string">Leave</span></span><br><span class="line"><span class="attr">ShortNamespaceLines:</span> <span class="number">1</span></span><br><span class="line"><span class="attr">SortIncludes:</span>    <span class="string">CaseSensitive</span></span><br><span class="line"><span class="attr">SortJavaStaticImport:</span> <span class="string">Before</span></span><br><span class="line"><span class="attr">SortUsingDeclarations:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">SpaceAfterCStyleCast:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">SpaceAfterLogicalNot:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">SpaceAfterTemplateKeyword:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">SpaceBeforeAssignmentOperators:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">SpaceBeforeCaseColon:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">SpaceBeforeCpp11BracedList:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">SpaceBeforeCtorInitializerColon:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">SpaceBeforeInheritanceColon:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">SpaceBeforeParens:</span> <span class="string">ControlStatements</span></span><br><span class="line"><span class="attr">SpaceBeforeParensOptions:</span></span><br><span class="line">  <span class="attr">AfterControlStatements:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">AfterForeachMacros:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">AfterFunctionDefinitionName:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">AfterFunctionDeclarationName:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">AfterIfMacros:</span>   <span class="literal">true</span></span><br><span class="line">  <span class="attr">AfterOverloadedOperator:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">BeforeNonEmptyParentheses:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">SpaceAroundPointerQualifiers:</span> <span class="string">Default</span></span><br><span class="line"><span class="attr">SpaceBeforeRangeBasedForLoopColon:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">SpaceInEmptyBlock:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">SpaceInEmptyParentheses:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">SpacesBeforeTrailingComments:</span> <span class="number">2</span></span><br><span class="line"><span class="attr">SpacesInAngles:</span>  <span class="string">Never</span></span><br><span class="line"><span class="attr">SpacesInConditionalStatement:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">SpacesInContainerLiterals:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">SpacesInCStyleCastParentheses:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">SpacesInLineCommentPrefix:</span></span><br><span class="line">  <span class="attr">Minimum:</span>         <span class="number">1</span></span><br><span class="line">  <span class="attr">Maximum:</span>         <span class="number">-1</span></span><br><span class="line"><span class="attr">SpacesInParentheses:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">SpacesInSquareBrackets:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">SpaceBeforeSquareBrackets:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">BitFieldColonSpacing:</span> <span class="string">Both</span></span><br><span class="line"><span class="attr">Standard:</span>        <span class="string">Auto</span></span><br><span class="line"><span class="attr">StatementAttributeLikeMacros:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Q_EMIT</span></span><br><span class="line"><span class="attr">StatementMacros:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Q_UNUSED</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">QT_REQUIRE_VERSION</span></span><br><span class="line"><span class="attr">TabWidth:</span>        <span class="number">8</span></span><br><span class="line"><span class="attr">UseCRLF:</span>         <span class="literal">false</span></span><br><span class="line"><span class="attr">UseTab:</span>          <span class="string">Never</span></span><br><span class="line"><span class="attr">WhitespaceSensitiveMacros:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">STRINGIZE</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">PP_STRINGIZE</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">BOOST_PP_STRINGIZE</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">NS_SWIFT_NAME</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">CF_SWIFT_NAME</span></span><br><span class="line"><span class="string">...</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/tips/" rel="tag"># tips</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/12/20/quaternion/" rel="prev" title="rotation">
+      <i class="fa fa-chevron-left"></i> rotation
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Edgar Lau</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:lileilau@outlook.com" title="E-Mail → mailto:lileilau@outlook.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Edgar Lau</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'rSkkCh3IUaTjnO74DDqph3P5-gzGzoHsz',
+      appKey     : '38Z2doZf8e8WBRqkDSqlvNho',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
