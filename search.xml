@@ -2,8 +2,14 @@
 <search>
   <entry>
     <title>缘起</title>
-    <url>/2024/12/22/brief/</url>
-    <content><![CDATA[
+    <url>/2024/12/21/brief/</url>
+    <content><![CDATA[<p>作为个人系列博客的开篇，写一下写博客的目的。</p>
+<span id="more"></span>
+<p>正经人谁写日记啊，同样，正经人谁写博客啊！作为一个不正经的打工人，时时碰到钉子。真的有必要记录下自己会什么、自己研究过什么、自己实现过什么以及自己关注过什么。</p>
+<p>作为一个GNC专业的从业者，保持学习的状态非常重要。最近15年左右的时间，GNC领域发生了翻天覆地的变化。特别是自动驾驶系统研发的极速推进，为GNC领域注入了非常丰富的血液。所幸笔者工作的内容与自动驾驶有所关联，因此也在这一轮浪潮中有些许的心得。但是这个系统过于庞大，笔者做过控制（Control），也研发过导航系统（Navigation），同时也涉猎过制导（Guidance），所学过于斑杂，时时有不胜脑力之感。古人云：“好记性不如烂笔头”，因此希望在这个博客里面把自己做过的工作，学过的知识，研究过的论文整理一下，以便与志同道合者探讨，予有志者参考。</p>
+<p>特别地，自动驾驶系统的GNC问题，包括全局路径规划/局部路径规划/定位/控制等几个方面的内容，其中全局路径规划与全局地图有关系，局部路径规划问题与感知紧密相连，是全局路径在当前环境下的一个子问题，定位问题涉及到多传感器融合，控制则根据局部路径规划与定位的结果生成最后的控制指令，实现转向/加减速动作完成对局部轨迹的跟踪，最后完成全局路径规划的任务。</p>
+<p>笔者主要的工作内容与定位与控制有关系，对于全局任务与局部任务有所涉猎，目前还在学习之中。从数学上来讲，GNC问题可以表述为最优路径/最优估计/最优控制，当然最优只存在与理论与书本上，工程只能做到很有限的水平。本博客将从基础的理论开始，详细地介绍里程计/SLAM/控制算法等内容，同时也会记录路径规划方面的学习笔记。如果顺利，本博客将会以工程实现视觉/雷达SLAM、基于仿真平台的控制算法作为目标，同时也会记录一些规划方面的论文代码实现（不一定是工程上可用的）。</p>
+<p>博客的更新通常会在周末，正好作为一周的总结，内容不定。</p>
 ]]></content>
   </entry>
   <entry>
@@ -12,13 +18,13 @@
     <content><![CDATA[<p>笔者在平时多数时候使用C/C++作为工作编程语言，为了规范后续文章中的代码块风格，这里介绍代码风格，命名宜使用英文，确保言简意赅，有公认的简写，可以用简写。命名与个人的习惯和积累有关系，这里主要还是想介绍一下我习惯的C/C++命名风格，以备日后时时注意。代码的缩进风格可以参考google的C++ format，这里就不再展开了。由于我们主要研究算法和理论方面的问题，对于代码风格不做过多的介绍，只要按照合理的风格，<strong><em>一以贯之</em></strong>，最终成品总不至于差到哪里去。</p>
 <span id="more"></span>
 <ol type="1">
-<li>类名和结构体名以大驼峰的方式标记 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">MyStruct</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
-<li>不论是普通函数还是某个类的成员函数，均以小驼峰的方式标记 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">doSomething</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">MyClass::doSomething</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>类名和结构体名以大驼峰的方式标记。 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">MyStruct</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li>不论是普通函数还是某个类的成员函数，均以小驼峰的方式标记。 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">doSomething</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">MyClass::doSomething</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li>普通变量以小写加下划线的方式标记，类或者结构体的成员变量在此基础上多写一个下划线作为结尾以便区分。 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> not_class_member;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span>&#123;</span><br><span class="line">  <span class="type">int</span> class_member_;</span><br><span class="line">  <span class="type">static</span> MyClass* another_my_class_;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li>枚举类为统一，都按照C++11的标准来定义，枚举名同类一样，标记为大驼峰形式，枚举的成员标记为小驼峰（主要是笔者认为这样写更紧凑）。 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum class</span> <span class="title class_">Color</span>&#123;</span><br><span class="line">    PaleGreen,</span><br><span class="line">    DarkRed,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
 <li>在泛型编程的时候，类型名遵从类的命名规则，参数名遵从普通变量的命名规则。 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T,<span class="type">int</span> d&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClassHasVec</span>&#123;</span><br><span class="line">  Eigen::Matrix&lt;T,d,<span class="number">1</span>&gt; my_vec_;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Status,<span class="keyword">typename</span> Value,<span class="type">int</span> idx_row,<span class="type">int</span> idx_col,<span class="type">int</span> value_row,<span class="type">int</span> value_col&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClassHasMat</span>&#123;</span><br><span class="line">    Eigen::Matrix&lt;Status,idx_row,idx_col&gt; status_;</span><br><span class="line">    Eigen::Matrix&lt;Value,value_row,value_col&gt; value_;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>文件夹命名为小驼峰形似，文件命名为小写下划线形式 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">| -- include</span><br><span class="line">     | -- myClass</span><br><span class="line">          |-- my_class.h</span><br></pre></td></tr></table></figure></li>
-<li>单行/多行注释均按照C++风格 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// comment</span></span><br><span class="line"><span class="comment">// another commet</span></span><br></pre></td></tr></table></figure></li>
+<li>文件夹命名为小驼峰形似，文件命名为小写下划线形式。 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">| -- include</span><br><span class="line">     | -- myClass</span><br><span class="line">          |-- my_class.h</span><br></pre></td></tr></table></figure></li>
+<li>单行/多行注释均按照C++风格。 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// comment</span></span><br><span class="line"><span class="comment">// another commet</span></span><br></pre></td></tr></table></figure></li>
 <li>缩进，行宽和其他一些格式上面的问题，因人而异，选择自己喜欢的一种即可，放入IDE即可自动管理代码格式。</li>
 </ol>
 ]]></content>
@@ -30,17 +36,17 @@
       </tags>
   </entry>
   <entry>
-    <title>rotation</title>
-    <url>/2024/12/20/quaternion/</url>
-    <content><![CDATA[<p>This post is about the basic theory of ragid-body rotation, including the defination, manipulation and usage in ragid-body rotation representation of quaternion, direction cosine matrix and skew symertry matrix. We use Hamilton's notation of quaternion in this post. This post is the prerequest for our impending posts discussing the GNC problem.</p>
+    <title>刚体运动学/动力学</title>
+    <url>/2024/12/23/quaternion/</url>
+    <content><![CDATA[<p>本博客介绍六自由度刚体运动学和动力学和INS系统的原理，作为基于IMU融合定位系统的基础。</p>
 <span id="more"></span>
-<p><span class="math inline">\(q=q_0+q_1i+q_2j+q_3k\)</span></p>
 ]]></content>
       <categories>
         <category>math</category>
       </categories>
       <tags>
         <tag>rotation</tag>
+        <tag>INS</tag>
       </tags>
   </entry>
 </search>
