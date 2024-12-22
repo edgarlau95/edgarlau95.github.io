@@ -7,20 +7,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>rotation</title>
-    <url>/2024/12/20/quaternion/</url>
-    <content><![CDATA[<p>This post is about the basic theory of ragid-body rotation, including the defination, manipulation and usage in ragid-body rotation representation of quaternion, direction cosine matrix and skew symertry matrix. We use Hamilton's notation of quaternion in this post. This post is the prerequest for our impending posts discussing the GNC problem.</p>
-<span id="more"></span>
-<p><span class="math inline">\(q=q_0+q_1i+q_2j+q_3k\)</span></p>
-]]></content>
-      <categories>
-        <category>math</category>
-      </categories>
-      <tags>
-        <tag>rotation</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>代码风格</title>
     <url>/2024/12/22/code-style/</url>
     <content><![CDATA[<p>笔者在平时多数时候使用C/C++作为工作编程语言，为了规范后续文章中的代码块风格，这里介绍代码风格，命名宜使用英文，确保言简意赅，有公认的简写，可以用简写。命名与个人的习惯和积累有关系，这里主要还是想介绍一下我习惯的C/C++命名风格，以备日后时时注意。代码的缩进风格可以参考google的C++ format，这里就不再展开了。由于我们主要研究算法和理论方面的问题，对于代码风格不做过多的介绍，只要按照合理的风格，<strong><em>一以贯之</em></strong>，最终成品总不至于差到哪里去。</p>
@@ -41,6 +27,20 @@
       </categories>
       <tags>
         <tag>tips</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>rotation</title>
+    <url>/2024/12/20/quaternion/</url>
+    <content><![CDATA[<p>This post is about the basic theory of ragid-body rotation, including the defination, manipulation and usage in ragid-body rotation representation of quaternion, direction cosine matrix and skew symertry matrix. We use Hamilton's notation of quaternion in this post. This post is the prerequest for our impending posts discussing the GNC problem.</p>
+<span id="more"></span>
+<p><span class="math inline">\(q=q_0+q_1i+q_2j+q_3k\)</span></p>
+]]></content>
+      <categories>
+        <category>math</category>
+      </categories>
+      <tags>
+        <tag>rotation</tag>
       </tags>
   </entry>
 </search>
