@@ -58,10 +58,9 @@
 <p>车辆动力学讨论车辆在平面中的三自由度动力学模型，按照模型的简化程度，可以分为三自由度单轨车辆动力学模型和三自由度双轨车辆动力学模型。三自由度模型忽略了俯仰，侧倾和垂向动态，保留了车辆纵向和侧向运动的主要特征，为研究车辆平面运动提供了足够精确的近似。</p>
 <h4 id="两轮模型">两轮模型</h4>
 <p>为简单起见，我们先看下单轨车辆动力学模型：</p>
-<p><img src="/2024/12/24/vehicle_dynamics/two_wheel_dynamic.png" width="300"></p>
+<p><img src="/2024/12/24/vehicle_dynamics/two_wheel_dynamic.png" height="300"></p>
 <p>图中<span class="math inline">\(F_{xf},F_{yf},F_{xr},F_{yr}\)</span>分别为车辆前后轮的纵向力和侧向力，车辆质心处的速度为<span class="math inline">\(v\)</span>，其在车辆纵向与侧向的投影分别为<span class="math inline">\(v_x,v_y\)</span>，质心距离前后轮中心的距离分别为<span class="math inline">\(l_x,l_y\)</span>，车辆的前轮转角为<span class="math inline">\(\delta\)</span>，前后轮的轮胎侧偏角分别为<span class="math inline">\(\alpha_r,\alpha_f\)</span>，物理意义为车轮轴向与车轮中心速度的夹角，<span class="math inline">\(\gamma\)</span>为车身的横摆角速度。</p>
 <p>根据动力学定律，不难得到车辆的三自由度动力学方程如下： <span class="math display">\[
-\label{eq1}
 \begin{equation}
 \begin{aligned}
 m\dot{v}_x&amp;=F_{xr}+F_{xf}\cos\delta-F_{yf}\sin\delta\\
