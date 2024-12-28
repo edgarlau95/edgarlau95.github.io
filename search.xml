@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>3D运动学/动力学</title>
+    <url>/2024/12/23/3d_machinery/</url>
+    <content><![CDATA[<p>本博客介绍六自由度刚体在三维空间中的运动学和动力学原理，同时会在本文引入常见的符号，作为后续文章的基础。</p>
+<span id="more"></span>
+]]></content>
+      <categories>
+        <category>Theory</category>
+      </categories>
+      <tags>
+        <tag>Machinery</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>缘起</title>
     <url>/2024/12/21/brief/</url>
-    <content><![CDATA[<p>作为个人系列博客的开篇，写一下写博客的目的。</p>
+    <content><![CDATA[<p>作为个人系列博客的开篇，讨论写这些博客的目的。</p>
 <span id="more"></span>
 <p>正经人谁写日记啊，同样，正经人谁写博客啊！作为一个不正经的打工人，时时碰到钉子。真的有必要记录下自己会什么、自己研究过什么、自己实现过什么以及自己关注过什么。</p>
 <p>作为一个GNC专业的从业者，保持学习的状态非常重要。最近15年左右的时间，GNC领域发生了翻天覆地的变化。特别是自动驾驶系统研发的极速推进，为GNC领域注入了非常丰富的血液。所幸笔者工作的内容与自动驾驶有所关联，因此也在这一轮浪潮中有些许的心得。但是这个系统过于庞大，笔者做过控制（Control），也研发过导航系统（Navigation），同时也涉猎过制导（Guidance），所学过于斑杂，时时有不胜脑力之感。古人云：“好记性不如烂笔头”，因此希望在这个博客里面把自己做过的工作，学过的知识，研究过的论文整理一下，以便与志同道合者探讨，予有志者参考。</p>
@@ -14,9 +27,10 @@
   </entry>
   <entry>
     <title>代码风格</title>
-    <url>/2024/12/22/code-style/</url>
-    <content><![CDATA[<p>笔者在平时多数时候使用C/C++作为工作编程语言，为了规范后续文章中的代码块风格，这里介绍代码风格，命名宜使用英文，确保言简意赅，有公认的简写，可以用简写。命名与个人的习惯和积累有关系，这里主要还是想介绍一下我习惯的C/C++命名风格，以备日后时时注意。代码的缩进风格可以参考google的C++ format，这里就不再展开了。由于我们主要研究算法和理论方面的问题，对于代码风格不做过多的介绍，只要按照合理的风格，<strong><em>一以贯之</em></strong>，最终成品总不至于差到哪里去。</p>
+    <url>/2024/12/22/code_style/</url>
+    <content><![CDATA[<p>笔者在平时多数时候使用C/C++作为工作编程语言，为了规范后续文章中的代码块风格，这里介绍代码风格。只要按照合理的风格，<strong><em>一以贯之</em></strong>，最终成品总不至于差到哪里去。</p>
 <span id="more"></span>
+<p>命名宜使用英文，确保言简意赅，有公认的简写，可以用简写。命名与个人的习惯和积累有关系，这里主要还是想介绍一下我习惯的C/C++命名风格，以备日后时时注意。代码的缩进风格可以参考google的C++ format，这里就不再展开了。由于我们主要研究算法和理论方面的问题，对于代码风格不做过多的介绍。主要的原则如下：</p>
 <ol type="1">
 <li>类名和结构体名以大驼峰的方式标记。 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">MyStruct</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
 <li>不论是普通函数还是某个类的成员函数，均以小驼峰的方式标记。 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">doSomething</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">MyClass::doSomething</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
@@ -29,24 +43,10 @@
 </ol>
 ]]></content>
       <categories>
-        <category>programming</category>
+        <category>Programming</category>
       </categories>
       <tags>
-        <tag>tips</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>刚体运动学/动力学</title>
-    <url>/2024/12/23/quaternion/</url>
-    <content><![CDATA[<p>本博客介绍六自由度刚体运动学和动力学和INS系统的原理，作为基于IMU融合定位系统的基础。</p>
-<span id="more"></span>
-]]></content>
-      <categories>
-        <category>math</category>
-      </categories>
-      <tags>
-        <tag>rotation</tag>
-        <tag>INS</tag>
+        <tag>Tips</tag>
       </tags>
   </entry>
   <entry>
@@ -54,8 +54,8 @@
     <url>/2024/12/24/vehicle_dynamics/</url>
     <content><![CDATA[<p>为了后续介绍车辆的控制算法，开篇先讨论汽车的动力学模型。</p>
 <span id="more"></span>
-<h3 id="车辆动力学">车辆动力学</h3>
-<p>车辆动力学讨论车辆在平面中的三自由度动力学模型，按照模型的简化程度，可以分为三自由度单轨车辆动力学模型和三自由度双轨车辆动力学模型。三自由度模型忽略了俯仰，侧倾和垂向动态，保留了车辆纵向和侧向运动的主要特征，为研究车辆平面运动提供了足够精确的近似。</p>
+<h3 id="车辆平面动力学">车辆平面动力学</h3>
+<p>车辆平面动力学讨论车辆在平面中的三自由度动力学模型，按照模型的简化程度，可以分为三自由度单轨车辆动力学模型和三自由度双轨车辆动力学模型。三自由度模型忽略了俯仰，侧倾和垂向动态，保留了车辆纵向和侧向运动的主要特征，为研究车辆平面运动提供了足够精确的近似。</p>
 <h4 id="两轮模型">两轮模型</h4>
 <p>为简单起见，我们先看下单轨车辆动力学模型：</p>
 <p><img src="/2024/12/24/vehicle_dynamics/two_wheel_dynamic.png" height="300"></p>
@@ -106,10 +106,10 @@ I\dot{\gamma}&amp;=-F_{yr}l_r+\left(F_{xf}\sin\delta+F_{yf}\cos\delta\right)l_f
 <h4 id="四轮模型-1">四轮模型</h4>
 ]]></content>
       <categories>
-        <category>control</category>
+        <category>Theory</category>
       </categories>
       <tags>
-        <tag>vehicle</tag>
+        <tag>Machinery</tag>
       </tags>
   </entry>
 </search>

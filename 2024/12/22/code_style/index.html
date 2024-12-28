@@ -23,15 +23,20 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Edgar&#39;s Blog">
-<meta property="og:url" content="http://example.com/tags/rotation/index.html">
+  <meta name="description" content="笔者在平时多数时候使用C&#x2F;C++作为工作编程语言，为了规范后续文章中的代码块风格，这里介绍代码风格。只要按照合理的风格，一以贯之，最终成品总不至于差到哪里去。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="代码风格">
+<meta property="og:url" content="http://example.com/2024/12/22/code_style/index.html">
 <meta property="og:site_name" content="Edgar&#39;s Blog">
+<meta property="og:description" content="笔者在平时多数时候使用C&#x2F;C++作为工作编程语言，为了规范后续文章中的代码块风格，这里介绍代码风格。只要按照合理的风格，一以贯之，最终成品总不至于差到哪里去。">
 <meta property="og:locale">
+<meta property="article:published_time" content="2024-12-22T07:16:10.000Z">
+<meta property="article:modified_time" content="2024-12-28T01:54:10.533Z">
 <meta property="article:author" content="Edgar Lau">
+<meta property="article:tag" content="Tips">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/tags/rotation/">
+<link rel="canonical" href="http://example.com/2024/12/22/code_style/">
 
 
 <script id="page-configurations">
@@ -39,12 +44,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-Hans'
   };
 </script>
 
-  <title>Tag: rotation | Edgar's Blog</title>
+  <title>代码风格 | Edgar's Blog</title>
   
 
 
@@ -185,57 +190,131 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/22/code_style/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Edgar Lau">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Edgar's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          代码风格
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="Created: 2024-12-22 15:16:10" itemprop="dateCreated datePublished" datetime="2024-12-22T15:16:10+08:00">2024-12-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="Modified: 2024-12-28 09:54:10" itemprop="dateModified" datetime="2024-12-28T09:54:10+08:00">2024-12-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">所属分类</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Programming/" itemprop="url" rel="index"><span itemprop="name">Programming</span></a>
+                </span>
+            </span>
+
+          
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">rotation
-          <small>Tag</small>
-        </h2>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2024/12/22/code_style/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2024/12/22/code_style/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2024</span>
+        <p>笔者在平时多数时候使用C/C++作为工作编程语言，为了规范后续文章中的代码块风格，这里介绍代码风格。只要按照合理的风格，<strong><em>一以贯之</em></strong>，最终成品总不至于差到哪里去。</p>
+<span id="more"></span>
+<p>命名宜使用英文，确保言简意赅，有公认的简写，可以用简写。命名与个人的习惯和积累有关系，这里主要还是想介绍一下我习惯的C/C++命名风格，以备日后时时注意。代码的缩进风格可以参考google的C++ format，这里就不再展开了。由于我们主要研究算法和理论方面的问题，对于代码风格不做过多的介绍。主要的原则如下：</p>
+<ol type="1">
+<li>类名和结构体名以大驼峰的方式标记。 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">MyStruct</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li>不论是普通函数还是某个类的成员函数，均以小驼峰的方式标记。 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">doSomething</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">MyClass::doSomething</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>普通变量以小写加下划线的方式标记，类或者结构体的成员变量在此基础上多写一个下划线作为结尾以便区分。 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> not_class_member;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span>&#123;</span><br><span class="line">  <span class="type">int</span> class_member_;</span><br><span class="line">  <span class="type">static</span> MyClass* another_my_class_;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>枚举类为统一写法，都按照C++11的标准来定义，枚举名同类一样，标记为大驼峰形式，枚举的成员标记为大驼峰（主要是笔者认为这样写更紧凑，也容易区分枚举定义的不同模式）。 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum class</span> <span class="title class_">Color</span>&#123;</span><br><span class="line">    PaleGreen,</span><br><span class="line">    DarkRed,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li>在泛型编程的时候，类型名遵从类的命名规则，参数名遵从普通变量的命名规则。 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T,<span class="type">int</span> d&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClassHasVec</span>&#123;</span><br><span class="line">  Eigen::Matrix&lt;T,d,<span class="number">1</span>&gt; my_vec_;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Status,<span class="keyword">typename</span> Value,<span class="type">int</span> idx_row,<span class="type">int</span> idx_col,<span class="type">int</span> value_row,<span class="type">int</span> value_col&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClassHasMat</span>&#123;</span><br><span class="line">    Eigen::Matrix&lt;Status,idx_row,idx_col&gt; status_;</span><br><span class="line">    Eigen::Matrix&lt;Value,value_row,value_col&gt; value_;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>文件夹命名为小驼峰形似，文件命名为小写下划线形式。 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">| -- include</span><br><span class="line">     | -- myClass</span><br><span class="line">          |-- my_class.h</span><br></pre></td></tr></table></figure></li>
+<li>单行/多行注释均按照C++风格。 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// comment</span></span><br><span class="line"><span class="comment">// another commet</span></span><br></pre></td></tr></table></figure></li>
+<li>缩进，行宽和其他一些格式上面的问题，因人而异，选择自己喜欢的一种即可，放入IDE即可自动管理代码格式。</li>
+</ol>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-12-23T22:55:33+08:00"
-              content="2024-12-23">
-          12-23
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Tips/" rel="tag"># Tips</a>
+          </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/12/23/quaternion/" itemprop="url">
-            <span itemprop="name">刚体运动学/动力学</span>
-          </a>
-      </div>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/12/21/brief/" rel="prev" title="缘起">
+      <i class="fa fa-chevron-left"></i> 缘起
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/12/23/3d_machinery/" rel="next" title="3D运动学/动力学">
+      3D运动学/动力学 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -302,13 +381,13 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
