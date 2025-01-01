@@ -87,6 +87,30 @@ a\times b&amp;=\left(F_1a_1\right)\times\left(F_1b_1\right)\\
 ]]></content>
   </entry>
   <entry>
+    <title>代码风格</title>
+    <url>/2024/12/22/code_style/</url>
+    <content><![CDATA[<p>笔者在平时多数时候使用C/C++作为工作编程语言，为了规范后续文章中的代码块风格，这里介绍代码风格。只要按照合理的风格，<strong><em>一以贯之</em></strong>，最终成品总不至于差到哪里去。</p>
+<span id="more"></span>
+<p>命名宜使用英文，确保言简意赅，有公认的简写，可以用简写。命名与个人的习惯和积累有关系，这里主要还是想介绍一下我习惯的C/C++命名风格，以备日后时时注意。代码的缩进风格可以参考google的C++ format，这里就不再展开了。由于我们主要研究算法和理论方面的问题，对于代码风格不做过多的介绍。主要的原则如下：</p>
+<ol type="1">
+<li>类名和结构体名以大驼峰的方式标记。 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">MyStruct</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li>不论是普通函数还是某个类的成员函数，均以小驼峰的方式标记。 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">doSomething</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">MyClass::doSomething</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>普通变量以小写加下划线的方式标记，类或者结构体的成员变量在此基础上多写一个下划线作为结尾以便区分。 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> not_class_member;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span>&#123;</span><br><span class="line">  <span class="type">int</span> class_member_;</span><br><span class="line">  <span class="type">static</span> MyClass* another_my_class_;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>枚举类为统一写法，都按照C++11的标准来定义，枚举名同类一样，标记为大驼峰形式，枚举的成员标记为大驼峰（主要是笔者认为这样写更紧凑，也容易区分枚举定义的不同模式）。 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum class</span> <span class="title class_">Color</span>&#123;</span><br><span class="line">    PaleGreen,</span><br><span class="line">    DarkRed,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li>在泛型编程的时候，类型名遵从类的命名规则，参数名遵从普通变量的命名规则。 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T,<span class="type">int</span> d&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClassHasVec</span>&#123;</span><br><span class="line">  Eigen::Matrix&lt;T,d,<span class="number">1</span>&gt; my_vec_;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Status,<span class="keyword">typename</span> Value,<span class="type">int</span> idx_row,<span class="type">int</span> idx_col,<span class="type">int</span> value_row,<span class="type">int</span> value_col&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClassHasMat</span>&#123;</span><br><span class="line">    Eigen::Matrix&lt;Status,idx_row,idx_col&gt; status_;</span><br><span class="line">    Eigen::Matrix&lt;Value,value_row,value_col&gt; value_;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>文件夹命名为小驼峰形似，文件命名为小写下划线形式。 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">| -- include</span><br><span class="line">     | -- myClass</span><br><span class="line">          |-- my_class.h</span><br></pre></td></tr></table></figure></li>
+<li>单行/多行注释均按照C++风格。 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// comment</span></span><br><span class="line"><span class="comment">// another commet</span></span><br></pre></td></tr></table></figure></li>
+<li>缩进，行宽和其他一些格式上面的问题，因人而异，选择自己喜欢的一种即可，放入IDE即可自动管理代码格式。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Programming</category>
+      </categories>
+      <tags>
+        <tag>Tips</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>汽车运动学与动力学</title>
     <url>/2024/12/24/vehicle_dynamics/</url>
     <content><![CDATA[<p>为了后续介绍车辆的控制算法，开篇先讨论汽车的动力学模型。</p>
@@ -147,30 +171,6 @@ I\dot{\gamma}&amp;=-F_{yr}l_r+\left(F_{xf}\sin\delta+F_{yf}\cos\delta\right)l_f
       </categories>
       <tags>
         <tag>Machinery</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>代码风格</title>
-    <url>/2024/12/22/code_style/</url>
-    <content><![CDATA[<p>笔者在平时多数时候使用C/C++作为工作编程语言，为了规范后续文章中的代码块风格，这里介绍代码风格。只要按照合理的风格，<strong><em>一以贯之</em></strong>，最终成品总不至于差到哪里去。</p>
-<span id="more"></span>
-<p>命名宜使用英文，确保言简意赅，有公认的简写，可以用简写。命名与个人的习惯和积累有关系，这里主要还是想介绍一下我习惯的C/C++命名风格，以备日后时时注意。代码的缩进风格可以参考google的C++ format，这里就不再展开了。由于我们主要研究算法和理论方面的问题，对于代码风格不做过多的介绍。主要的原则如下：</p>
-<ol type="1">
-<li>类名和结构体名以大驼峰的方式标记。 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">MyStruct</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
-<li>不论是普通函数还是某个类的成员函数，均以小驼峰的方式标记。 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">doSomething</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">MyClass::doSomething</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>普通变量以小写加下划线的方式标记，类或者结构体的成员变量在此基础上多写一个下划线作为结尾以便区分。 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> not_class_member;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span>&#123;</span><br><span class="line">  <span class="type">int</span> class_member_;</span><br><span class="line">  <span class="type">static</span> MyClass* another_my_class_;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>枚举类为统一写法，都按照C++11的标准来定义，枚举名同类一样，标记为大驼峰形式，枚举的成员标记为大驼峰（主要是笔者认为这样写更紧凑，也容易区分枚举定义的不同模式）。 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum class</span> <span class="title class_">Color</span>&#123;</span><br><span class="line">    PaleGreen,</span><br><span class="line">    DarkRed,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
-<li>在泛型编程的时候，类型名遵从类的命名规则，参数名遵从普通变量的命名规则。 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T,<span class="type">int</span> d&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClassHasVec</span>&#123;</span><br><span class="line">  Eigen::Matrix&lt;T,d,<span class="number">1</span>&gt; my_vec_;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> Status,<span class="keyword">typename</span> Value,<span class="type">int</span> idx_row,<span class="type">int</span> idx_col,<span class="type">int</span> value_row,<span class="type">int</span> value_col&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClassHasMat</span>&#123;</span><br><span class="line">    Eigen::Matrix&lt;Status,idx_row,idx_col&gt; status_;</span><br><span class="line">    Eigen::Matrix&lt;Value,value_row,value_col&gt; value_;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>文件夹命名为小驼峰形似，文件命名为小写下划线形式。 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">| -- include</span><br><span class="line">     | -- myClass</span><br><span class="line">          |-- my_class.h</span><br></pre></td></tr></table></figure></li>
-<li>单行/多行注释均按照C++风格。 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// comment</span></span><br><span class="line"><span class="comment">// another commet</span></span><br></pre></td></tr></table></figure></li>
-<li>缩进，行宽和其他一些格式上面的问题，因人而异，选择自己喜欢的一种即可，放入IDE即可自动管理代码格式。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Programming</category>
-      </categories>
-      <tags>
-        <tag>Tips</tag>
       </tags>
   </entry>
 </search>
